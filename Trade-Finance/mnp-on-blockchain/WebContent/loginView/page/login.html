@@ -1,0 +1,81 @@
+<div class="container-fluid  top-space">
+	<div class="row">
+		<div class="col-md-3">
+			<img src="./images/icon/left-arrow.png" align="left" width="35" />
+		</div>
+		<div class="col-md-6">
+			<h1 class="text-center text-muted">
+				<b>Login</b>
+			</h1>
+			<h1 class="text-center font-300">for Importer</h1>
+		</div>
+		<div class="col-md-3">
+			<img src="./images/icon/multiply.png" align="right" width="30" />
+		</div>
+	</div>
+
+	<div class="register-box container">
+
+		<div class="row mt-3">
+			<div class="col-md-4 centered-col">
+				<h4 class="text-muted font-light">Register</h4>
+			</div>
+		</div>
+
+		<div class="row mt-3">
+			<div class="col-md-4 centered-col">
+				<form action="" method="" name="registerForm">
+
+					<div class="input-group">
+						<input type="text"
+							class="form-control mobile text-center font-light" name="username"
+							ng-model="Username" placeholder="Username" required
+							ng-minlength="3" ng-maxlength="20" />
+						<div class="input-group-append">
+							<span><i class="fa fa-check text-success" ng-if="mobileNumber"
+								style="margin-top: 30px;"></i></span>
+						</div>
+					</div>
+
+					<div class="input-group">
+						<input type="password" class="otp text-center form-control font-light"
+							ng-minlength="3" ng-maxlength="20" ng-model="password"
+							placeholder="Password" name="password" />
+						<div class="input-group-append">
+							<span><i class="fa fa-check text-success" ng-if="otp"
+								style="margin-top: 30px;"></i></span>
+						</div>
+					</div>
+
+					<br> <br>
+
+					<div class="form-group">
+						<button ng-click="loginImporter()"
+							class="btn btn-outline-primary btn-mnp btn-justify" ng-if="password || username">
+							Login</button>
+						<button ng-click="loginImporter()"
+							class="btn btn-outline-primary btn-mnp btn-justify" disabled ng-if="!password && !username">
+							Login</button>
+					</div>
+
+				</form>
+
+				<div class="row">
+					<a href="/login" class="blue-text space-left"
+						style="text-decoration: none; width: 45%; float: left;">Sign Up</a>
+					<a href="/forgot" class="blue-text "
+						style="text-decoration: none; float: right; width: 50%; text-align: right;">Forgot
+						Password?</a>
+				</div>
+
+				<br>
+
+				<div class="row">
+					<a href="/terms" class="text-muted "
+						style="text-decoration: underline; text-align: center; width: 100%;">Terms
+						& Conditions</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

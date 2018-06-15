@@ -1,0 +1,310 @@
+
+<nav class="navbar mnp-nav navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<h1>
+				<a class="text-muted" href="#">TRADE FINANCE PORTAL <span
+					class="font-300" style="font-size: 0.8em;">for Importer</span></a>
+			</h1>
+		</div>
+		<ul class="nav navbar-nav navbar-right">
+			<li class=""><a href="#" class="text-muted"><img
+					src="./images/icon/power-button-off.png" /><span
+					class="space-left">Logout</span></a></li>
+		</ul>
+	</div>
+</nav>
+<div class="container-fluid below-nav">
+
+	<div class="row" style="vertical-align: middle; margin-top: 41vh;">
+
+		<div class="col-md-3 text-center">
+			<button
+				class="btn align-middle importer-button btn-outline-primary btn-mnp btn-justify"
+				ng-click="myModal={'display':'block'}">Create PO</button>
+
+			<div id="myModal" class="modal" ng-style="myModal">
+
+				<!-- Modal content -->
+				<div class="modal-content">
+					<span class="close" ng-click="myModal={'display':'none'}"
+						style="right: 0;">&times;</span>
+					<h3>
+						<b>Purchase Order</b>
+					</h3>
+					<form action="" method="" name="PUForm">
+						<div class="input-group">
+							<div class="row" style="width: 100%;">
+								<div class="col-md-4 text-right">
+									<h4 style="margin-top: 7%;">
+										<b>Commodity :</b>
+									</h4>
+								</div>
+								<div class="col-md-6">
+									<input type="text"
+										class="form-control mobile text-center font-light"
+										name="commodity" ng-model="commodity" placeholder="Commodity"
+										required ng-minlength="3" ng-maxlength="20" />
+
+								</div>
+								<div class="col-md-4 text-right">
+									<h4 style="margin-top: 7%;">
+										<b>Date :</b>
+									</h4>
+								</div>
+								<div class="col-md-6">
+									<input type="date"
+										class="form-control mobile text-center font-light" name="date"
+										ng-model="date" placeholder="Date" required />
+
+								</div>
+							</div>
+						</div>
+						<div class="input-group">
+							<div class="row" style="width: 100%;">
+								<div class="col-md-4 text-right">
+									<h4 style="margin-top: 7%;">
+										<b>Currency :</b>
+									</h4>
+								</div>
+								<div class="col-md-6">
+									<input type="text"
+										class="form-control mobile text-center font-light"
+										name="currency" ng-model="currency" placeholder="Currency"
+										required />
+
+								</div>
+							</div>
+						</div>
+
+						<div class="input-group">
+							<div class="row" style="width: 100%;">
+								<div class="col-md-4 text-right">
+									<h4 style="margin-top: 7%;">
+										<b>Importer Name :</b>
+									</h4>
+								</div>
+								<div class="col-md-6">
+									<input type="text"
+										class="form-control mobile text-center font-light"
+										name="importname" ng-model="importername"
+										placeholder="Importer Name" required ng-minlength="3"
+										ng-maxlength="20" />
+
+								</div>
+
+								<div class="col-md-4 text-right">
+									<h4 style="margin-top: 7%;">
+										<b>Exporter Name :</b>
+									</h4>
+								</div>
+								<div class="col-md-6">
+									<input type="text"
+										class="form-control mobile text-center font-light"
+										name="exportername" ng-model="exportername"
+										placeholder="Exporter Name" required />
+
+								</div>
+							</div>
+						</div>
+						<div class="input-group">
+							<div class="row" style="width: 100%;">
+								<div class="col-md-4 text-right">
+									<h4 style="margin-top: 7%;">
+										<b>Quantity :</b>
+									</h4>
+								</div>
+								<div class="col-md-6">
+									<input type="number"
+										class="form-control mobile text-center font-light"
+										name="quantity" ng-model="quantity" placeholder="Quantity"
+										required />
+
+								</div>
+								<div class="col-md-4 text-right">
+									<h4 style="margin-top: 7%;">
+										<b>Price :</b>
+									</h4>
+								</div>
+								<div class="col-md-6">
+									<input type="number"
+										class="form-control mobile text-center font-light"
+										name="price" ng-model="price" placeholder="Unit Price"
+										required />
+
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row" ng-if="quantity && price">
+							<div class="col-md-12">
+								<h3>
+									<b>Amount: {{quantity * price}}</b>
+								</h3>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<div class="col-md-3 text-center">
+			<button ng-click="loginImporter()"
+				class="btn importer-button btn-outline-primary btn-mnp btn-justify">
+				Get All PO</button>
+		</div>
+		<div class="col-md-3 text-center">
+			<button ng-click="loginImporter()"
+				class="btn importer-button btn-outline-primary btn-mnp btn-justify">
+				Status of PO</button>
+		</div>
+		<div class="col-md-3 text-center">
+			<button
+				class="btn importer-button btn-outline-primary btn-mnp btn-justify"
+				ng-click="LC={'display':'block'}">Create LC</button>
+
+			<div id="LC" class="modal" ng-style="LC">
+
+				<!-- Modal content -->
+				<div class="modal-content">
+					<span class="close" ng-click="LC={'display':'none'}"
+						style="right: 0;">&times;</span>
+					<h3>
+						<b>Letter of Credit</b>
+					</h3>
+					<form action="" method="" name="PUForm">
+						<div class="input-group">
+							<div class="row" style="width: 100%;">
+								<div class="col-md-4 text-right">
+									<h4 style="margin-top: 7%;">
+										<b>Commodity :</b>
+									</h4>
+								</div>
+								<div class="col-md-6">
+									<input type="text"
+										class="form-control mobile text-center font-light"
+										name="commodity" ng-model="commodity" placeholder="Commodity"
+										required ng-minlength="3" ng-maxlength="20" />
+
+								</div>
+								<div class="col-md-4 text-right">
+									<h4 style="margin-top: 7%;">
+										<b>Date :</b>
+									</h4>
+								</div>
+								<div class="col-md-6">
+									<input type="date"
+										class="form-control mobile text-center font-light" name="date"
+										ng-model="date" placeholder="Date" required />
+
+								</div>
+							</div>
+						</div>
+						<div class="input-group">
+							<div class="row" style="width: 100%;">
+								<div class="col-md-4 text-right">
+									<h4 style="margin-top: 7%;">
+										<b>Currency :</b>
+									</h4>
+								</div>
+								<div class="col-md-6">
+									<input type="text"
+										class="form-control mobile text-center font-light"
+										name="currency" ng-model="currency" placeholder="Currency"
+										required />
+
+								</div>
+							</div>
+						</div>
+
+						<div class="input-group">
+							<div class="row" style="width: 100%;">
+								<div class="col-md-4 text-right">
+									<h4 style="margin-top: 7%;">
+										<b>Importer Name :</b>
+									</h4>
+								</div>
+								<div class="col-md-6">
+									<input type="text"
+										class="form-control mobile text-center font-light"
+										name="importname" ng-model="importername"
+										placeholder="Importer Name" required ng-minlength="3"
+										ng-maxlength="20" />
+
+								</div>
+
+								<div class="col-md-4 text-right">
+									<h4 style="margin-top: 7%;">
+										<b>Exporter Name :</b>
+									</h4>
+								</div>
+								<div class="col-md-6">
+									<input type="text"
+										class="form-control mobile text-center font-light"
+										name="exportername" ng-model="exportername"
+										placeholder="Exporter Name" required />
+
+								</div>
+							</div>
+						</div>
+						<div class="input-group">
+							<div class="row" style="width: 100%;">
+								<div class="col-md-4 text-right">
+									<h4 style="margin-top: 7%;">
+										<b>Quantity :</b>
+									</h4>
+								</div>
+								<div class="col-md-6">
+									<input type="number"
+										class="form-control mobile text-center font-light"
+										name="quantity" ng-model="quantity" placeholder="Quantity"
+										required />
+
+								</div>
+								<div class="col-md-4 text-right">
+									<h4 style="margin-top: 7%;">
+										<b>Price :</b>
+									</h4>
+								</div>
+								<div class="col-md-6">
+									<input type="number"
+										class="form-control mobile text-center font-light"
+										name="price" ng-model="price" placeholder="Unit Price"
+										required />
+
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row" ng-if="quantity && price">
+							<div class="col-md-12">
+								<h3>
+									<b>Amount: {{quantity * price}}</b>
+								</h3>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+
+
+</div>
+<!-- commodity
+creation date
+currency
+exporter name
+importer name
+quantity 
+unit price
+amount  -->
+
+
+

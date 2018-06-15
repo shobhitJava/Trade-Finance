@@ -1,0 +1,7 @@
+{
+  "appConfiguration":{
+  		"ip":"10.64.217.120",
+ 		"port":8088,
+ 		"production":true
+  }
+}
